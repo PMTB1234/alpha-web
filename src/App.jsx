@@ -6,6 +6,8 @@ import Dashboard from "./pages/Dashboard";
 import Companias from "./pages/Companias";
 import Usuarios from "./pages/Usuarios";
 import Accesos from "./pages/Accesos";
+import MiCodigo from "./pages/MiCodigo";
+import Escaner from "./pages/Escaner";
 
 export default function App() {
   return (
@@ -23,6 +25,8 @@ export default function App() {
         <Route path="companias" element={<Companias />} />
         <Route path="usuarios" element={<Usuarios />} />
         <Route path="accesos" element={<Accesos />} />
+        <Route path="mi-codigo" element={<MiCodigo />} />
+        <Route path="escaner" element={<Escaner />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
