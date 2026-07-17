@@ -37,6 +37,9 @@ export default function Layout() {
         <NavLink to="/companias" className={nav}>Compañías</NavLink>
         <NavLink to="/usuarios" className={nav}>Usuarios</NavLink>
         <NavLink to="/accesos" className={nav}>Bitácora</NavLink>
+        {user?.rol === "admin" && (
+          <NavLink to="/reportes" className={nav}>Reportes</NavLink>
+        )}
         <div className="border-t border-slate-700 my-2" />
         <NavLink to="/mi-codigo" className={nav}>Mi código</NavLink>
         {(user?.rol === "admin" || user?.rol === "guardia") && (
@@ -61,6 +64,7 @@ export default function Layout() {
     "/companias": "Compañías",
     "/usuarios": "Usuarios",
     "/accesos": "Bitácora",
+    "/reportes": "Reportes",
     "/mi-codigo": "Mi código",
     "/escaner": "Escáner",
   };
