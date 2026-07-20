@@ -10,11 +10,13 @@ import MiCodigo from "./pages/MiCodigo";
 import Escaner from "./pages/Escaner";
 import Reportes from "./pages/Reportes";
 import Invitar from "./pages/Invitar";
+import VisitanteCodigo from "./pages/VisitanteCodigo";
 
 export default function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/v/:codigo" element={<VisitanteCodigo />} />
       <Route
         path="/"
         element={
