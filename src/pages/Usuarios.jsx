@@ -59,6 +59,12 @@ export default function Usuarios() {
     cargar();
   };
 
+  const reactivar = async (id) => {
+    if (!confirm("¿Reactivar este usuario?")) return;
+    await api.post(`/usuarios/${id}/activar`);
+    cargar();
+  };
+
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
@@ -130,10 +136,20 @@ export default function Usuarios() {
                 <td className="px-4 py-2">{u.documento}</td>
                 <td className="px-4 py-2">{ROLES.find(r => r.id === u.id_rol)?.nombre}</td>
                 <td className="px-4 py-2">{companias.find(c => c.id_compania === u.id_compania)?.nombre || "—"}</td>
-                <td className="px-4 py-2">{u.activo ? "Sí" : "No"}</td>
-                <td className="px-4 py-2 text-right space-x-2">
+                <td className="px-4 py-2">
+                  <span className={`px-2 py-0.5 rounded text-xs font-medium ${
+                    u.activo ? "bg-emerald-100 text-emerald-700" : "bg-slate-200 text-slate-600"
+                  }`}>
+                    {u.activo ? "Activo" : "Inactivo"}
+                  </span>
+                </td>
+                <td className="px-4 py-2 text-right space-x-3">
                   <button onClick={() => editar(u)} className="text-blue-600 hover:underline">Editar</button>
-                  <button onClick={() => desactivar(u.id_usuario)} className="text-red-600 hover:underline">Desactivar</button>
+                  {u.activo ? (
+                    <button onClick={() => desactivar(u.id_usuario)} className="text-red-600 hover:underline">Desactivar</button>
+                  ) : (
+                    <button onClick={() => reactivar(u.id_usuario)} className="text-emerald-600 hover:underline font-medium">Reactivar</button>
+                  )}
                 </td>
               </tr>
             ))}
