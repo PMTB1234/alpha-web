@@ -42,6 +42,7 @@ export default function Layout() {
         )}
         <div className="border-t border-slate-700 my-2" />
         <NavLink to="/mi-codigo" className={nav}>Mi código</NavLink>
+        <NavLink to="/invitar" className={nav}>Invitar visitante</NavLink>
         {(user?.rol === "admin" || user?.rol === "guardia") && (
           <NavLink to="/escaner" className={nav}>Escáner</NavLink>
         )}
@@ -66,6 +67,7 @@ export default function Layout() {
     "/accesos": "Bitácora",
     "/reportes": "Reportes",
     "/mi-codigo": "Mi código",
+    "/invitar": "Invitar visitante",
     "/escaner": "Escáner",
   };
   const currentTitle = titleByPath[location.pathname] || "Alpha";

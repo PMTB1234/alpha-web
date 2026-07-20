@@ -9,6 +9,7 @@ import Accesos from "./pages/Accesos";
 import MiCodigo from "./pages/MiCodigo";
 import Escaner from "./pages/Escaner";
 import Reportes from "./pages/Reportes";
+import Invitar from "./pages/Invitar";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="usuarios" element={<Usuarios />} />
         <Route path="accesos" element={<Accesos />} />
         <Route path="mi-codigo" element={<MiCodigo />} />
+        <Route path="invitar" element={<Invitar />} />
         <Route path="escaner" element={<Escaner />} />
         <Route path="reportes" element={<Reportes />} />
       </Route>
